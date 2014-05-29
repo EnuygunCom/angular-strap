@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.popover', ['mgcrea.ngStrap.tooltip'])
+module.exports = angular.module('mgcrea.ngStrap.popover', ['mgcrea.ngStrap.tooltip'])
 
   .provider('$popover', function() {
 

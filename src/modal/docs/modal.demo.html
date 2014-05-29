@@ -56,18 +56,18 @@
   <h2 id="modals-usage">Usage</h2>
   <p>Append a <code>bs-modal</code>attribute to any element to activate the directive.</p>
   <div class="callout callout-info">
-    <h4>The module also exposes a <code>$modal</code>service</h4>
+    <h4>The module also exposes a <code>$mgcreaModal</code>service</h4>
     <p>Available for programmatic use (inside a directive/controller).</p>
     <div class="highlight">
       <pre>
         <code class="javascript" highlight-block>
           angular.module('myApp')
-          .controller('DemoCtrl', function($scope, $modal) {
+          .controller('DemoCtrl', function($scope, $mgcreaModal) {
             // Show a basic modal from a controller
-            var myModal = $modal({title: 'My Title', content: 'My Content', show: true});
+            var myModal = $mgcreaModal({title: 'My Title', content: 'My Content', show: true});
 
             // Pre-fetch an external template populated with a custom scope
-            var myOtherModal = $modal({scope: $scope, template: 'modal/docs/modal.tpl.demo.html', show: false});
+            var myOtherModal = $mgcreaModal({scope: $scope, template: 'modal/docs/modal.tpl.demo.html', show: false});
             // Show when some event occurs (use $promise property to ensure the template has been loaded)
             $scope.showModal = function() {
               myOtherModal.$promise.then(myOtherModal.show);
@@ -186,13 +186,13 @@
   </div>
   <div class="callout callout-info">
     <h4>Default options</h4>
-    <p>You can override global defaults for the plugin with <code>$modalProvider.defaults</code></p>
+    <p>You can override global defaults for the plugin with <code>$mgcreaModalProvider.defaults</code></p>
     <div class="highlight">
       <pre class="bs-exemple-code">
         <code class="javascript" highlight-block>
           angular.module('myApp')
-          .config(function($modalProvider) {
-            angular.extend($modalProvider.defaults, {
+          .config(function($mgcreaModalProvider) {
+            angular.extend($mgcreaModalProvider.defaults, {
               animation: 'am-flip-x'
             });
           })

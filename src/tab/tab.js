@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.tab', [])
+module.exports = angular.module('mgcrea.ngStrap.tab', [])
 
   .run(function($templateCache) {
 

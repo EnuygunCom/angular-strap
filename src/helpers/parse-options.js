@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.helpers.parseOptions', [])
+module.exports = angular.module('mgcrea.ngStrap.helpers.parseOptions', [])
 
   .provider('$parseOptions', function() {
 

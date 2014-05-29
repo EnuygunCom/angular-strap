@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.helpers.debounce', [])
+module.exports = angular.module('mgcrea.ngStrap.helpers.debounce', [])
 
 // @source jashkenas/underscore
 // @url https://github.com/jashkenas/underscore/blob/1.5.2/underscore.js#L693

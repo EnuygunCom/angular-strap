@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.dropdown', ['mgcrea.ngStrap.tooltip'])
+module.exports = angular.module('mgcrea.ngStrap.dropdown', ['mgcrea.ngStrap.tooltip'])
 
   .provider('$dropdown', function() {
 

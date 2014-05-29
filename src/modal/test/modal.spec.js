@@ -3,19 +3,19 @@
 describe('modal', function() {
 
   var bodyEl = $('body'), sandboxEl;
-  var $compile, $templateCache, $modal, $animate, scope;
+  var $compile, $templateCache, $mgcreaModal, $animate, scope;
 
   beforeEach(module('ngSanitize'));
   beforeEach(module('ngAnimateMock'));
   beforeEach(module('mgcrea.ngStrap.modal'));
 
-  beforeEach(inject(function (_$rootScope_, _$compile_, _$templateCache_, _$modal_, _$animate_) {
+  beforeEach(inject(function (_$rootScope_, _$compile_, _$templateCache_, _$mgcreaModal_, _$animate_) {
     scope = _$rootScope_.$new();
     bodyEl.html('');
     sandboxEl = $('<div>').attr('id', 'sandbox').appendTo(bodyEl);
     $compile = _$compile_;
     $templateCache = _$templateCache_;
-    $modal = _$modal_;
+    $mgcreaModal = _$mgcreaModal_;
     $animate = _$animate_;
   }));
 
@@ -111,7 +111,7 @@ describe('modal', function() {
   describe('using service', function() {
 
     it('should correctly open on next digest', function() {
-      var myModal = $modal(templates['default'].scope.modal);
+      var myModal = $mgcreaModal(templates['default'].scope.modal);
       scope.$digest();
       expect(bodyEl.children('.modal').length).toBe(1);
       myModal.hide();
@@ -119,7 +119,7 @@ describe('modal', function() {
     });
 
     it('should correctly be destroyed', function() {
-      var myModal = $modal(angular.extend(templates['default'].scope.modal));
+      var myModal = $mgcreaModal(angular.extend(templates['default'].scope.modal));
       scope.$digest();
       expect(bodyEl.children('.modal').length).toBe(1);
       myModal.destroy();
@@ -129,7 +129,7 @@ describe('modal', function() {
 
     it('should correctly work with ngClick', function() {
       var elm = compileDirective('markup-ngClick-service');
-      var myModal = $modal(angular.extend({show: false}, templates['default'].scope.modal));
+      var myModal = $mgcreaModal(angular.extend({show: false}, templates['default'].scope.modal));
       scope.showModal = function() {
         myModal.$promise.then(myModal.show);
       };
@@ -141,7 +141,7 @@ describe('modal', function() {
     it('should correctly work with ngClick with an isolated scope', function() {
       scope = scope.$new(true);
       var elm = compileDirective('markup-ngClick-service');
-      var myModal = $modal(angular.extend({show: false, scope: scope}, templates['default'].scope.modal));
+      var myModal = $mgcreaModal(angular.extend({show: false, scope: scope}, templates['default'].scope.modal));
       scope.showModal = function() {
         myModal.$promise.then(myModal.show);
       };
@@ -155,7 +155,7 @@ describe('modal', function() {
   describe('show / hide events', function() {
 
     it('should dispatch show and show.before events', function() {
-      var myModal = $modal(templates['default'].scope.modal);
+      var myModal = $mgcreaModal(templates['default'].scope.modal);
       var emit = spyOn(myModal.$scope, '$emit');
       scope.$digest();
 
@@ -167,7 +167,7 @@ describe('modal', function() {
     });
 
     it('should dispatch hide and hide.before events', function() {
-      var myModal = $modal(templates['default'].scope.modal);
+      var myModal = $mgcreaModal(templates['default'].scope.modal);
       scope.$digest();
       var emit = spyOn(myModal.$scope, '$emit');
       myModal.hide();
@@ -180,7 +180,7 @@ describe('modal', function() {
     });
 
     it('should namespace show/hide events using the prefixEvent', function() {
-      var myModal = $modal(angular.extend({prefixEvent: 'alert'}, templates['default'].scope.modal));
+      var myModal = $mgcreaModal(angular.extend({prefixEvent: 'alert'}, templates['default'].scope.modal));
       var emit = spyOn(myModal.$scope, '$emit');
       scope.$digest();
       myModal.hide();

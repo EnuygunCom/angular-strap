@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.helpers.dimensions', [])
+module.exports = angular.module('mgcrea.ngStrap.helpers.dimensions', [])
 
   .factory('dimensions', function($document, $window) {
 

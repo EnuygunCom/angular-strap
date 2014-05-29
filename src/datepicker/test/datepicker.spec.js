@@ -306,7 +306,7 @@ describe('datepicker', function() {
   // describe('using service', function() {
 
   //   it('should correctly open on next digest', function() {
-  //     var myModal = $modal(templates['default'].scope.modal);
+  //     var myModal = $mgcreaModal(templates['default'].scope.modal);
   //     scope.$digest();
   //     expect(bodyEl.children('.modal').length).toBe(1);
   //     myModal.hide();
@@ -314,7 +314,7 @@ describe('datepicker', function() {
   //   });
 
   //   it('should correctly be destroyed', function() {
-  //     var myModal = $modal(angular.extend(templates['default'].scope.modal));
+  //     var myModal = $mgcreaModal(angular.extend(templates['default'].scope.modal));
   //     scope.$digest();
   //     expect(bodyEl.children('.modal').length).toBe(1);
   //     myModal.destroy();
@@ -324,7 +324,7 @@ describe('datepicker', function() {
 
   //   it('should correctly work with ngClick', function() {
   //     var elm = compileDirective('markup-ngClick-service');
-  //     var myModal = $modal(angular.extend({show: false}, templates['default'].scope.modal));
+  //     var myModal = $mgcreaModal(angular.extend({show: false}, templates['default'].scope.modal));
   //     scope.showModal = function() {
   //       myModal.$promise.then(myModal.show);
   //     };

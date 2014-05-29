@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.aside', ['mgcrea.ngStrap.modal'])
+module.exports = angular.module('mgcrea.ngStrap.aside', ['mgcrea.ngStrap.modal'])
 
   .provider('$aside', function() {
 
@@ -18,7 +18,7 @@ angular.module('mgcrea.ngStrap.aside', ['mgcrea.ngStrap.modal'])
       show: true
     };
 
-    this.$get = function($modal) {
+    this.$get = function($mgcreaModal) {
 
       function AsideFactory(config) {
 
@@ -27,7 +27,7 @@ angular.module('mgcrea.ngStrap.aside', ['mgcrea.ngStrap.modal'])
         // Common vars
         var options = angular.extend({}, defaults, config);
 
-        $aside = $modal(options);
+        $aside = $mgcreaModal(options);
 
         return $aside;
 

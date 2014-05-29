@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.button', [])
+module.exports = angular.module('mgcrea.ngStrap.button', [])
 
   .provider('$button', function() {
 

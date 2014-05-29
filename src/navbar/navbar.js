@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mgcrea.ngStrap.navbar', [])
+module.exports = angular.module('mgcrea.ngStrap.navbar', [])
 
   .provider('$navbar', function() {
 

@@ -4,7 +4,7 @@
 // @TODO: submit issue to core
 // '<span ng-if="title"><strong ng-bind="title"></strong>&nbsp;</span><span ng-bind-html="content"></span>' +
 
-angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
+module.exports = angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
 
   .provider('$alert', function() {
 
@@ -24,7 +24,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
       dismissable: true
     };
 
-    this.$get = function($modal, $timeout) {
+    this.$get = function($mgcreaModal, $timeout) {
 
       function AlertFactory(config) {
 
@@ -33,7 +33,7 @@ angular.module('mgcrea.ngStrap.alert', ['mgcrea.ngStrap.modal'])
         // Common vars
         var options = angular.extend({}, defaults, config);
 
-        $alert = $modal(options);
+        $alert = $mgcreaModal(options);
 
         // Support scope as string options [/*title, content, */ type, dismissable]
         $alert.$scope.dismissable = !!options.dismissable;
