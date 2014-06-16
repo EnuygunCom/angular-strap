@@ -25,7 +25,7 @@ module.exports = angular.module('mgcrea.ngStrap.tooltip', ['mgcrea.ngStrap.helpe
 
       var trim = String.prototype.trim;
       var isTouch = 'createTouch' in $window.document;
-      var htmlReplaceRegExp = /ng-bind="/ig;
+      var htmlReplaceRegExp = /ng-bind=/ig;
 
       function TooltipFactory(element, config) {
 
@@ -84,7 +84,7 @@ module.exports = angular.module('mgcrea.ngStrap.tooltip', ['mgcrea.ngStrap.helpe
         var tipLinker, tipElement, tipTemplate, tipContainer;
         $tooltip.$promise.then(function(template) {
           if(angular.isObject(template)) template = template.data;
-          if(options.html) template = template.replace(htmlReplaceRegExp, 'ng-bind-html="');
+          if(options.html) template = template.replace(htmlReplaceRegExp, 'ng-bind-html=');
           template = trim.apply(template);
           tipTemplate = template;
           tipLinker = $compile(template);
